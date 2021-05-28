@@ -27,7 +27,7 @@ public class SpringRedisLockFactory implements BeanDefinitionRegistryPostProcess
         if (!beanDefinitionRegistry.containsBeanDefinition(SpringRedisLock.class.getName())) {
             BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(SpringRedisLock.class);
             beanDefinitionBuilder.setScope("prototype");
-            beanDefinitionRegistry.registerBeanDefinition(beanDefinitionBuilder);
+            beanDefinitionRegistry.registerBeanDefinition(SpringRedisLock.class.getName(), beanDefinitionBuilder.getBeanDefinition());
         }
 
     }
