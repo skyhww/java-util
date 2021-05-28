@@ -44,7 +44,7 @@ public class StringRetryAbleRedisLock extends SpringRedisLock {
     public StringRetryAbleRedisLock(RedisTemplate redisTemplate, String key) {
         super(redisTemplate, key);
     }
-
+    @SuppressWarnings("unckecked")
     public <T> ResultHolder<T> doWithRetry(Supplier<T> supplier, Long expireMills, RetryPolicy retryPolicy, BackOffPolicy backOffPolicy) throws RedisLockAcquiredTimeOutException {
         RetryTemplate retryTemplate = new RetryTemplate();
         if (retryPolicy == null) {
